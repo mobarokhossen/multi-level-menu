@@ -1,6 +1,12 @@
-# multi-level-menu
+## Multi Level Menu
 
-#Multi Level Menu
+## Describe
+For Multi-level Menu or Category based Ecommmerce site, you can maintain a one table for multi parent and child category track. 
+Please Check DB Design: 
+**_table.sql_**
+
+For get and print data and html check:
+**_menus.php_**
 
 |---- Home 
 
@@ -29,4 +35,7 @@
 |-------Others
 
 
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
+Please make sure to update tests as appropriate.
