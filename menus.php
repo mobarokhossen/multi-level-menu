@@ -37,8 +37,8 @@
        }
        ?>
        <li class="nav-item <?=$dropdown?>" >
-          <a class="nav-link <?=$dropdown_toggle?>" href="index.php" id="navbarDropdown" role="button"
-                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?=$cat['name']?> <span class="sr-only"></span></a>
+          <a class="nav-link <?=$dropdown_toggle?>" href="<?=$cat['link']?>" id="navbarDropdown" role="button"
+                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?=$cat['display_name']?> <span class="sr-only"></span></a>
    <?php
        if( check_child_category($conn,$cat['catagory_id'])>0)
        {
