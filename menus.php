@@ -8,7 +8,7 @@
            $dropdown = 'dropdown';
            $dropdown_toggle = 'dropdown-toggle';
        }
-        $categories = "select * from catagory where menu_st=1 and mparent =".$parent_id;
+        $categories = "select * from categories where status=1 and parent_id =".$parent_id;
           $catp=mysqli_query($conn,$categories);
           while ($cat = mysqli_fetch_assoc($catp))
           {
@@ -18,7 +18,7 @@
    
    
    function check_child_category($conn,$parent_id){
-        $categories = "select COUNT(*) AS total from catagory where menu_st=1 and mparent =".$parent_id;
+        $categories = "select COUNT(*) AS total from categories where status=1 and parent_id =".$parent_id;
         $catp=mysqli_query($conn,$categories);
         $count = mysqli_fetch_array($catp);
         return $count['total'];
@@ -28,7 +28,7 @@
    
    function set_html($conn,$cat, $dropdown, $dropdown_toggle)
    {
-       if( check_child_category($conn,$cat['catagory_id'])>0){
+       if( check_child_category($conn,$cat['id'])>0){
            $dropdown = 'dropdown';
            $dropdown_toggle = 'dropdown-toggle';
        }
@@ -38,14 +38,14 @@
        ?>
        <li class="nav-item <?=$dropdown?>" >
           <a class="nav-link <?=$dropdown_toggle?>" href="index.php" id="navbarDropdown" role="button"
-                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?=$cat['catagory_title']?> <span class="sr-only"></span></a>
+                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?=$cat['name']?> <span class="sr-only"></span></a>
    <?php
        if( check_child_category($conn,$cat['catagory_id'])>0)
        {
            ?>
            <ul  class="dropdown-menu" aria-labelledby="navbarDropdown">
                <?php
-               category($conn,$cat['catagory_id'], true);
+               category($conn,$cat['id'], true);
                ?>
            </ul>
            <?php
